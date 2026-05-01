@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - DevFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='privacidade.css') }}">
+</head>
+<body>
+    <div class="container-privacidade">
+        <header>
+            <h1>Política de Privacidade</h1>
+            <p>Última atualização: Maio de 2024</p>
+        </header>
+
+        <section class="conteudo">
+            <h2>1. Coleta de Dados</h2>
+            <p>Para sua jornada de desenvolvimento no <strong>DevFolio</strong>, coletamos seu nome, e-mail e telefone. Esses dados servem apenas para criar seu perfil e identificar seus projetos.</p>
+
+            <h2>2. Segurança e Criptografia</h2>
+            <p>Levamos a sério a sua segurança. Por isso, utilizamos criptografia para proteger suas informações sensíveis, como sua senha de acesso.</p>
+
+            <h2>3. Uso das Informações</h2>
+            <p>Seus dados não serão vendidos ou compartilhados com terceiros. Eles permanecem em nosso banco de dados apenas para as funcionalidades do site.</p>
+        </section>
+
+        <footer>
+            <a href="{{ url_for('cadastro') }}" class="btn-voltar">Entendi, voltar para o Cadastro</a>
+        </footer>
+    </div>
+</body>
+</html>
