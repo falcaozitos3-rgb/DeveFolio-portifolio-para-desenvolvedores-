@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #0d0d1a 0%, #27395f 60%, #1a418f 100%);
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+
+/* aparti daqui nem sei man como se faz*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Ocupa mais espaço na tela */
+}
+
+/* Texto pequeno de cima */
+main p:first-child {
+    font-size: 1.5rem; /* Aumentado */
+    margin-bottom: 10px;
+}
+
+/* Título DEVFOLIO */
+h1 {
+    font-size: 5rem; /* Bem grande como no Canva */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Frase "Portfólios para desenvolvedores" */
+main p:nth-of-type(2) {
+    font-size: 3rem; /* Bem maior */
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.botoes-container {
+    display: flex;
+    gap: 25px;
+}
+
+button {
+    padding: 18px 40px; 
+    border-radius: 50px;
+    border: 2px solid white;
+    background: linear-gradient(100deg, #5de0e6 40%, #306eeb 50%,#0750e2 60%, #0131b3 70%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgb(0, 153, 255);
+    color: #0c52dd;
+}

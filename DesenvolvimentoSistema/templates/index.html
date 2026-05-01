@@ -3,3 +3,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <title>DevFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <main>
+        <p>Bem-vindo(a) ao</p>
+        <h1>DevFolio</h1>
+        <p>Portifolios para desenvolvedores</p>
+        <div class="botoes-container">
+        <!-- limk para Explora site -->
+        <a href="{{ url_for('paginaprincipal')}}">
+        <button> Explorar site &rarr; </button>
+        </a>
+        <!-- link para fazer conta -->
+        <a href="{{ url_for('entrar')}}">
+        <button> Tem conta? Entrar.</button>
+        </a>
+        </div>
+    </main>
+</body>
