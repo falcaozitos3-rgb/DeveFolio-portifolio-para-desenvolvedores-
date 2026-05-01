@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,15 +7,34 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='entrar.css') }}">
 </head>
 <body>
+    <main>
     <div class="container-principal">
         <div class="lado-direito">
             <h1>Bem-vindo(a)! novamente!</h1>
             <p>Ficamos felizes em tê-lo(a) de volta!</p>
+            <p>Faça login para acessar seu portfólio e continuar sua jornada de desenvolvimento.</p>
         </div>
         <div class="lado-esquerdo">
+            <h2>Criar Conta </h2>
+            <a href="{{ url_for('index') }}" class="btn-voltar"> &larr; Voltar</a>
+            <form action="entrar" method="post">
+                <input type="text" name="nome" placeholder="Nome Completo">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="senha" placeholder="Senha">
             </form>
-            <p>Não tem uma conta? <a href="{{ url_for('cadastro') }}">Cadastre-se aqui</a>.</p>
+            <p>criptografia de ponta a ponta.</p>
         </div>
+        <div class="container-botao">
+            <!-- link para cadastro -->
+            <a href="{{ url_for('cadastro') }}">
+            <button>Não tem conta?</button>
+            </a>
+            <!-- link para entrar -->
+            <a href="{{ url_for('pagina_principal') }}">
+            <button>Entrar</button>
+            </a>
+        </div>
+    </main>
 
 </body>
 </html>

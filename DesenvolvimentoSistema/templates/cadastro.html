@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - DeveFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro.css') }}">
+</head>
+<body>
+    <main>
+    <div class="container-principal">
+        <div class="lado-direito">
+            <h1>Bem-vindo(a)! ao DeveFolio</h1>
+            <p>Ficamos felizes em tê-lo(a) conosco!</p>
+            <p>Crie sua conta para acessar seu portfólio e começar sua jornada de desenvolvimento.</p>
+        </div>
+        <div class="lado-esquerdo">
+            <h2>Criar Conta </h2>
+            <a href="{{ url_for('entrar') }}" class="btn-voltar"> &larr; Voltar</a>
+            <form action="cadastro" method="post">
+                <input type="text" name="nome" placeholder="Nome Completo">
+                <input tyṕe="email" name="email" placeholder="Seu E-mail">
+                <input type="tel" name="telefone" placeholder="Digite seu telefone">
+                <p> Nossas senhas são totalmente criptografadas.</p>
+                <input type="password" name="senha" placeholder="Digite sua senha">
+                <p>Criptografia de ponta a ponta.</p>
+            </form>
+            <p>Ao criar uma conta, você concorda com nossos <a href="privacidade">Termos de Serviço</a>
