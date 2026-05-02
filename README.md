@@ -13,7 +13,7 @@ O DevFolio é um sistema de gerenciamento de portfólio desenvolvido em Python, 
   ## Persistência de Dados:
    Armazenamento automático de novos usuários em um arquivo usuarios.json.Navegação Inteligente: Rotas dinâmicas utilizando url_for para evitar links quebrados.Páginas de Suporte: Inclusão de Política de Privacidade e página de Manutenção técnica.UX (User Experience): Funcionalidade de ver/esconder senha para facilitar o login.📁 Estrutura do Projetotext.
 
-├── main.py              # Cérebro do projeto (Rotas e Lógica)├── usuarios.json        # Nosso Banco de Dados├── static/              # Arquivos CSS e Imagens└── templates/           # Arquivos HTML (Páginas)
+ ├── main.py              # Cérebro do projeto (Rotas e Lógica) ├── usuarios.json        # Nosso Banco de Dados ├── static/              # Arquivos CSS e Imagens └── templates/           # Arquivos HTML (Páginas)
 
  Como rodar o projetoInstale o Flask: pip install flaskExecute o servidor: python main.pyAcesse: http://127.0.0.1:5000
 
