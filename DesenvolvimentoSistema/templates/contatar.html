@@ -2,3 +2,36 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    <title>Contatar Suporte - DeveFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contatar.css') }}">
+    </head>
+    <body>
+        <main>
+            <div class="container-principal">
+                <h1>Contatar Suporte</h1>
+                <p>Se você tiver alguma dúvida, sugestão ou precisar de ajuda, estamos aqui para ajudar!</p>
+                <form action="container_direito" method="post">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu E-mail" required>
+                    <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+                    <div class="container-direito">
+                        <h2>Informações de Contato</h2>
+                        <p>Email: contato@devefolio.com</p>
+                        <p>Telefone: (11) 1234-5678</p>
+                        <p>GitHub: https://github.com/falcaozitos3-rgb</p>
+                    </div>
+                </form>
+            </div>
+                <div class="container-esquerdo">
+                    <!-- linke para voltar para a pagina principal -->
+                    <a href="{{ url_for('pagina_principal') }}">
+                    <button>Voltar para Página Principal</button> 
+                    </a>
+                </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manutenção - DeveFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manutencao.css') }}">
+</head>
+<body>
+    <main>
+        <div class="container-principal">
+            <h1>Em Manutenção</h1>
+            <p>Estamos trabalhando para melhorar sua experiência. Volte em breve!</p>
+            <p>Agradecemos sua paciência e compreensão.</p>
+            <p>Enquanto isso, você pode explorar nossos outros recursos ou entrar em contato conosco para mais informações.</p>
+            <a href="{{ url_for('pagina_principal') }}">
+                <button>Voltar para a Página Principal</button>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,16 +1,10 @@
-# DeveFolio
+## 🚀 DevFolio - Portfólio System
+O DevFolio é um sistema de gerenciamento de portfólio desenvolvido em Python, focado em proporcionar uma experiência segura e fluida para desenvolvedores compartilharem seus projetos.
 
-Plataforma de portfólios para desenvolvedores.
-Crie sua conta, adicione seus projetos e compartilhe com o mundo.
-
-## Tecnologias usadas
-- Python
-- Flask
-- HTML/CSS
-
-## Status
-🚧 Em desenvolvimento
-
-## Autor
-Evaristo — github.com/Falcaozitos3-rgb
-
+## 🛠️ Tecnologias UtilizadasPython:
+ PYTHON: Linguagem principal do Back-end.Flask: Framework web para criação de rotas e renderização de templates.JSON: Utilizado como banco de dados NoSQL para persistência de usuários.HTML5/CSS3: Estruturação e estilização da interface.JavaScript: Lógica de interface (como o botão de visualizar senha 👁️).🌟 Funcionalidades ImplementadasSistema de Cadastro: Captura de Nome, E-mail, Telefone e Senha.Validação de Segurança: Uso de Expressões Regulares (Regex) para garantir senhas fortes e formatos de telefone corretos diretamente no Front-end.Persistência de Dados: Armazenamento automático de novos usuários em um arquivo usuarios.json.Navegação Inteligente: Rotas dinâmicas utilizando url_for para evitar links quebrados.Páginas de Suporte: Inclusão de Política de Privacidade e página de Manutenção técnica.UX (User Experience): Funcionalidade de ver/esconder senha para facilitar o login.📁 Estrutura do Projetotext.
+├── main.py              # Cérebro do projeto (Rotas e Lógica)
+├── usuarios.json        # Nosso Banco de Dados
+├── static/              # Arquivos CSS e Imagens
+└── templates/           # Arquivos HTML (Páginas)
+Usa el código con precaución.🚀 Como rodar o projetoInstale o Flask: pip install flaskExecute o servidor: python main.pyAcesse: http://127.0.0.1:5000

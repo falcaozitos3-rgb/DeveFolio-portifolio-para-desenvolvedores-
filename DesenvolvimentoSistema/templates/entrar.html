@@ -8,19 +8,22 @@
 </head>
 <body>
     <main>
-    <div class="container-principal">
         <div class="lado-direito">
             <h1>Bem-vindo(a)! novamente!</h1>
             <p>Ficamos felizes em tê-lo(a) de volta!</p>
             <p>Faça login para acessar seu portfólio e continuar sua jornada de desenvolvimento.</p>
         </div>
         <div class="lado-esquerdo">
-            <h2>Criar Conta </h2>
+            <h2>Entrar</h2>
             <a href="{{ url_for('index') }}" class="btn-voltar"> &larr; Voltar</a>
             <form action="entrar" method="post">
-                <input type="text" name="nome" placeholder="Nome Completo">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="senha" placeholder="Senha">
+                <input type="text" name="nome" placeholder="Nome Completo" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <div class="campo_senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <!-- Ícone de olho para mostrar/ocultar senha -->
+                <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
+                </div>
             </form>
             <p>criptografia de ponta a ponta.</p>
         </div>
@@ -35,6 +38,17 @@
             </a>
         </div>
     </main>
+
+    <script>
+        function togglePasswordVisibility() {
+            var senhaInput = document.getElementById("senha");
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+            }
+        }
+    </script>
 
 </body>
 </html>

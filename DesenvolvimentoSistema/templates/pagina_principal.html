@@ -1,0 +1,36 @@
+<!-- logo apos o usuario entrar no site, ele sera direcionado para a pagina principal, onde tera acesso a todas as funcionalidades do site, como criar projetos, ver projetos, e muito mais. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Principal - DeveFolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pagina_principal.css') }}">
+</head>
+<body>
+    <main>
+        <div class="container-principal">
+            <h1>Bem-vindo(a) ao DeveFolio!</h1>
+            <p>Explore seus projetos, compartilhe suas conquistas e conecte-se com outros desenvolvedores.</p>
+            <div class="botoes">
+                <a href="{{ url_for('manutencao') }}">
+                    <button>Criar Projeto</button>
+                </a>
+                <a href="{{ url_for('manutencao') }}">
+                    <button>Ver Projetos</button>
+                </a>
+                <a href="{{ url_for('manutencao') }}">
+                    <button>Perfil</button>
+                </a>
+                <a href="{{ url_for('final') }}">
+                    <button>Sair</button>
+
+                    <a href="{{ url_for('contatar') }}">
+                    <button>Contatar Suporte</button>
+                
+                    </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

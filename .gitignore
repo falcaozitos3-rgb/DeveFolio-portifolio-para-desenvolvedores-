@@ -1,3 +1,5 @@
 # por enquanto não tem nada, mas futuramente aqui vai 
 # ter arquivos que não devem ser versionados, como arquivos de configuração, arquivos de banco de dados, etc.
-
+*.pyc
+__pycache__/
+*usuarios.json

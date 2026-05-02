@@ -18,10 +18,31 @@
             <a href="{{ url_for('entrar') }}" class="btn-voltar"> &larr; Voltar</a>
             <form action="cadastro" method="post">
                 <input type="text" name="nome" placeholder="Nome Completo">
-                <input tyṕe="email" name="email" placeholder="Seu E-mail">
-                <input type="tel" name="telefone" placeholder="Digite seu telefone">
-                <p> Nossas senhas são totalmente criptografadas.</p>
-                <input type="password" name="senha" placeholder="Digite sua senha">
+                <input type="email" name="email" placeholder="Seu E-mail">
+                <input type="tel" name="telefone" placeholder="(00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" required>
+                <div class="campo_senha">
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" required>
+                <!-- Ícone de olho para mostrar/ocultar senha -->
+                <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
+                </div>
+                <p>A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.</p>
                 <p>Criptografia de ponta a ponta.</p>
+                <button type="submit">Criar Conta</button>
             </form>
             <p>Ao criar uma conta, você concorda com nossos <a href="privacidade">Termos de Serviço</a>
+<br> e nossa <a href="privacidade">Política de Privacidade</a>.</p>
+        </div>
+    </main>
+
+    <script>
+        function togglePasswordVisibility() {
+            var senhaInput = document.getElementById("senha");
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
