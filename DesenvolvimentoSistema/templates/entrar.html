@@ -8,34 +8,40 @@
 </head>
 <body>
     <main>
-        <div class="lado-direito">
-            <h1>Bem-vindo(a)! novamente!</h1>
-            <p>Ficamos felizes em tê-lo(a) de volta!</p>
-            <p>Faça login para acessar seu portfólio e continuar sua jornada de desenvolvimento.</p>
-        </div>
-        <div class="lado-esquerdo">
-            <h2>Entrar</h2>
-            <a href="{{ url_for('index') }}" class="btn-voltar"> &larr; Voltar</a>
-            <form action="entrar" method="post">
-                <input type="text" name="nome" placeholder="Nome Completo" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <div class="campo_senha">
-                <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                <!-- Ícone de olho para mostrar/ocultar senha -->
-                <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
+        <div class="container-principal">
+            <div class="lado-esquerdo">
+                <!-- formulario de login -->
+                <h2>Entrar</h2>
+                <form action="{{ url_for('entrar') }}" method="post">
+                    <input type="text" name="nome" placeholder="Nome Completo" required>
+                    <input type="text" name="email" placeholder="Email" required>
+                <div class="campo-senha">
+                    <input type="password" name="senha" placeholder="Senha" required>
+                    <p>criptografia de ponta a ponta.</p>
+                    <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
+                    
+                </form>
+                <div class="container-botao">
+                    <!-- link para cadastro -->
+                        <a href="{{ url_for('cadastro') }}">
+                    <button>Não tem conta?</button>
+                    </a>
+                    <!-- link para entrar -->
+                    <a href="{{ url_for('pagina_principal') }}">
+                    <button>Entrar</button>
+                    </a>
+                    <a href="{{url_for('index') }}">
+                    <button>voltar</button>
+                    </a>
                 </div>
-            </form>
-            <p>criptografia de ponta a ponta.</p>
+                </div>
+            </div>>
+                <!-- cores -->
+            <div class="lado-direito">
+                <p>Estamos felizes em vê-lo(a) novamente.</p>
+                <p>Faça login para acessar sua conta e aproveitar todos os recursos do DeveFolio.</p>
+            </div>
         </div>
-        <div class="container-botao">
-            <!-- link para cadastro -->
-            <a href="{{ url_for('cadastro') }}">
-            <button>Não tem conta?</button>
-            </a>
-            <!-- link para entrar -->
-            <a href="{{ url_for('pagina_principal') }}">
-            <button>Entrar</button>
-            </a>
         </div>
     </main>
 
