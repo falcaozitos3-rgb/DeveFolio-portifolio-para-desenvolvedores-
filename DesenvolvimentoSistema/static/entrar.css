@@ -35,11 +35,26 @@ body {
     color: #000000;
 }
 
+.lado-esquerdo button:nth-of-type(2) {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    color: white;
+}
+
+.lado-esquerdo button:nth-of-type(1) {
+    cursor: pointer;
+}
+
+
 input {
     background: #ffffff;
     border: none;
     padding: 15px;
-    color: white;
+    color: black;
     border-radius: 10px;
     margin-bottom: 15px;
 }
@@ -51,13 +66,23 @@ h2 {
     margin-bottom: 10%;
 }
 
+.erro {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+
+}
+
 .campo-senha input {
     margin-bottom: 0;
 }
 
 .campo-senha p {
     font-size: 10px;
-    margin-top: 5;
+    margin-top: 6;
     text-align: right;
 }
 
@@ -93,4 +118,35 @@ h2 {
     justify-content: flex-start;
     top: 20px;
     margin-bottom: 5;
+}
+
+
+.container-botao .btn:first-child {
+    background-color: rgb(255, 255, 255, 0.1);
+    color: white;
+    padding: 5px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    outline: 2px solid rgba(107, 103, 103, 0.5);
+    box-shadow: 0 2px 0 black;
+}
+
+.container-botao .btn:nth-of-type(2) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 5px 8px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    outline: 2px solid rgba(107, 103, 103, 0.5);
+    box-shadow: 0 2px 0 black;
+}
+
+.container-botao .btn:active {
+    transform: scale(1.05);
 }

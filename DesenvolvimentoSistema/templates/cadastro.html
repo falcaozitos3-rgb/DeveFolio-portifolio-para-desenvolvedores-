@@ -7,13 +7,9 @@
 </head>
 <body>
     <main>
-    <div class="container-principal">
-        <div class="lado-direito">
-            <h1>Bem-vindo(a)! ao DeveFolio</h1>
-            <p>Ficamos felizes em tê-lo(a) conosco!</p>
-            <p>Crie sua conta para acessar seu portfólio e começar sua jornada de desenvolvimento.</p>
-        </div>
-        <div class="lado-esquerdo">
+        <div class="container-principal">
+            <div class="lado-esquerdo">
+            <!-- formulario de cadastro -->
             <h2>Criar Conta </h2>
             <a href="{{ url_for('entrar') }}" class="btn-voltar"> &larr; Voltar</a>
             <form action="cadastro" method="post">
@@ -29,11 +25,16 @@
                 <p>Criptografia de ponta a ponta.</p>
                 <button type="submit">Criar Conta</button>
             </form>
+            <div class="lado-direito">
+                <h1>Bem-vindo(a)! ao DeveFolio</h1>
+                <p>Ficamos felizes em tê-lo(a) conosco!</p>
+                <p>Crie sua conta para acessar seu portfólio e começar sua jornada de desenvolvimento.</p>
+                <!-- termos de privacidade -->
+            <div class="os-termos">
             <p>Ao criar uma conta, você concorda com nossos <a href="privacidade">Termos de Serviço</a>
-<br> e nossa <a href="privacidade">Política de Privacidade</a>.</p>
+            <br> e nossa <a href="privacidade">Política de Privacidade</a>.</p>
+            </div>
         </div>
-    </main>
-
     <script>
         function togglePasswordVisibility() {
             var senhaInput = document.getElementById("senha");
@@ -44,5 +45,7 @@
             }
         }
     </script>
+    </div>
+    </main>
 </body>
 </html>

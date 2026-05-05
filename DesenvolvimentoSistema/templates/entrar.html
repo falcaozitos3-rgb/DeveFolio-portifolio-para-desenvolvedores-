@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,30 +11,25 @@
             <div class="lado-esquerdo">
                 <!-- formulario de login -->
                 <h2>Entrar</h2>
+                {% if erro %}
+                    <p class="erro">{{erro}}</p>
+                {% endif %}
                 <form action="{{ url_for('entrar') }}" method="post">
-                    <input type="text" name="nome" placeholder="Nome Completo" required>
                     <input type="text" name="email" placeholder="Email" required>
                 <div class="campo-senha">
-                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
                     <p>criptografia de ponta a ponta.</p>
-                    <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
-                    
+                    <button type="button" onclick="togglePasswordVisibility()"> &#128065; </button>
+                    <!-- link para entrar -->
+                    <button type="submit">Entrar</button>  
                 </form>
                 <div class="container-botao">
                     <!-- link para cadastro -->
-                        <a href="{{ url_for('cadastro') }}">
-                    <button>Não tem conta?</button>
-                    </a>
-                    <!-- link para entrar -->
-                    <a href="{{ url_for('pagina_principal') }}">
-                    <button>Entrar</button>
-                    </a>
-                    <a href="{{url_for('index') }}">
-                    <button>voltar</button>
-                    </a>
+                        <a href="{{ url_for('cadastro') }}" class="btn">Não tem conta?</a>
+                    <a href="{{ url_for('index') }}"class="btn">volta</a>
                 </div>
                 </div>
-            </div>>
+            </div>
                 <!-- cores -->
             <div class="lado-direito">
                 <p>Estamos felizes em vê-lo(a) novamente.</p>
@@ -43,11 +37,10 @@
             </div>
         </div>
         </div>
-    </main>
-
+        <div>
     <script>
         function togglePasswordVisibility() {
-            var senhaInput = document.getElementById("senha");
+            const senhaInput = document.getElementById("senha");
             if (senhaInput.type === "password") {
                 senhaInput.type = "text";
             } else {
@@ -55,6 +48,7 @@
             }
         }
     </script>
-
+    </div>
+    </main>
 </body>
 </html>

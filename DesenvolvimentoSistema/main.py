@@ -32,7 +32,6 @@ def entrar():
         # Aqui você pode processar os dados do formulário de login
         # Por exemplo, você pode obter os dados usando request.form['campo_nome']
         # E depois redirecionar para a página principal ou mostrar uma mensagem de sucesso
-        nome_digitado = request.form.get('nome')
         email_digitado = request.form.get('email')
         senha_digitada = request.form.get('senha')
 
@@ -40,18 +39,22 @@ def entrar():
         usuarios = carregar_usuarios()
 
         # Percorremos a lista procurando o e-mail e a senha
+        email_encontrado = False
+        erro = None
         for usuario in usuarios:
-            if usuario['email'] == email_digitado and usuario['senha'] == senha_digitada and usuario['nome'] == nome_digitado:
-                return redirect(url_for('pagina_principal'))
-
+            if usuario['email'] == email_digitado:
+                email_encontrado = True
+                if usuario['senha'] == senha_digitada:
+                    return redirect(url_for('pagina_principal'))
+                else:
+                    erro = "Senha errada, tente novamente"
+                    return render_template("entrar.html", erro=erro)
+        if not email_encontrado:
+            erro = "Você não tem cadastro, faça seu cadastro primeiro"
+            return render_template("entrar.html", erro=erro)
         # Se ele sair do loop e não achar nada, recarrega a página (ou mostra erro)
-        return render_template("entrar.html")
-        #caso tudo tenha cido preenchido, volrara para o (pagina_principal) para confirmar os dados, caso contrário, permanecerá na página de entrar
-        for usuario in usuarios:
-            if usuario['email'] == email and usuario['senha'] == senha and usuario['nome'] == nome:
-                return redirect(url_for('pagina_principal'))
-
     return render_template("entrar.html")
+
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro(): 
