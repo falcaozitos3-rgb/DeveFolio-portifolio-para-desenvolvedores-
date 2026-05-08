@@ -4,6 +4,158 @@
     box-sizing: border-box;
 }
 
-body {
-    
+ body { /*corpo aqui, centralização e etc... */
+    font-family: arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* imgem-aqui */
+    background-image: url("../static/235255453027.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 3%;
+}
+
+
+
+
+
+input {
+    background: white;
+    border: none;
+    padding: 10px;
+    color: black;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-left: 5px;
+    display: flex;
+}
+
+.valido {
+    color: green;
+}
+
+.invalido {
+    color: red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.lado-esquerdo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    width: 380px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 23px 0 rgba(255, 255, 255, 0.37);
+
+}
+
+.olho {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.conta {
+    color: #0184ff;
+    background: transparent;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 9px;
+    border-radius: 20px;
+    transition: all 0.03 ease;
+    transform: scale(1); 
+}
+
+.button-voltar:active{
+    background: transparent;
+    cursor: pointer;
+    color: #0184ff;
+    backdrop-filter: blur(5px);
+    transition: 0.2s;
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 9px;
+    border-radius: 20px;
+    transition: all 0.03 ease;
+    transform: scale(1);
+    width: 46%;
+    align-self: flex-start
+}
+
+.botoes-linha{
+    display: flex;
+    align-items:center;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 46%;
+}
+
+.cripto {
+    text-align: right;
+    width: 100%;
+    font-size: 9px;
+    color: white;
+}
+
+.lado-direito {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    padding-top: 30px;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+.lado-direito p:nth-last-of-type(1) {
+    color: white;
+    text-align: left;
+}
+
+.lado-direito p:nth-last-of-type(2) {
+    color: white;
+    text-align: left;
+}
+
+.os-termos {
+    margin-top: 50px;
 }

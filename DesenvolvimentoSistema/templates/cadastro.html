@@ -9,41 +9,82 @@
     <main>
         <div class="container-principal">
             <div class="lado-esquerdo">
-            <!-- formulario de cadastro -->
-            <h2>Criar Conta </h2>
-            <a href="{{ url_for('entrar') }}" class="btn-voltar"> &larr; Voltar</a>
-            <form action="cadastro" method="post">
-                <input type="text" name="nome" placeholder="Nome Completo">
-                <input type="email" name="email" placeholder="Seu E-mail">
-                <input type="tel" name="telefone" placeholder="(00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" required>
-                <div class="campo_senha">
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" required>
-                <!-- Ícone de olho para mostrar/ocultar senha -->
-                <button type="button" onclick="togglePasswordVisibility()">&#128065;</button>
-                </div>
-                <p>A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.</p>
-                <p>Criptografia de ponta a ponta.</p>
-                <button type="submit">Criar Conta</button>
-            </form>
-            <div class="lado-direito">
-                <h1>Bem-vindo(a)! ao DeveFolio</h1>
-                <p>Ficamos felizes em tê-lo(a) conosco!</p>
-                <p>Crie sua conta para acessar seu portfólio e começar sua jornada de desenvolvimento.</p>
-                <!-- termos de privacidade -->
-            <div class="os-termos">
-            <p>Ao criar uma conta, você concorda com nossos <a href="privacidade">Termos de Serviço</a>
-            <br> e nossa <a href="privacidade">Política de Privacidade</a>.</p>
+                <!-- formulario de cadastro -->
+                <form  action="cadastro" method="post">
+                    <h1>Criar Conta </h1>
+                    <input type="text" name="nome" placeholder="Nome Completo">
+                    <input type="email" name="email" placeholder="Seu E-mail">
+                    <input type="tel" name="telefone" placeholder="(00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" required>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" required>
+                    
+                    <div class="botoes-linha">
+                        <!-- Ícone de olho para mostrar/ocultar senha -->
+                        <button class="olho" type="button" onclick="togglePasswordVisibility()">&#128065;</button>
+                        <button class="conta" type="submit">Criar Conta</button>
+                        <a href="{{ url_for('entrar') }}" class="button-voltar">&larr;Voltar</button></a>
+                    </div>
+                        <!-- conteiner de estruções da senha -->
+                    <div   id="mensagem-senha" style="display: none;">
+                        <p id="oito-caracteres" class="invalido"> deve ter minimo 8 caracteres</p>
+                        <p id="maiusculas" class="invalido"> senha terar que ter caracteres minuscolos</p>
+                        <p id="minusculas" class="invalido"> caracteres maiusculos</p>
+                        <p id="numeros-especiais" class="invalido"> numeros e caracteres especiais</p>
+                    </div>
+                    <p class="cripto">Criptografia de ponta a ponta.</p>
+                </form>
             </div>
-        </div>
+            <div class="lado-direito">
+                    <h2>Bem-vindo(a)! ao DeveFolio</h2>
+                    <p>Ficamos felizes em tê-lo(a) conosco!</p>
+                    <p>Crie sua conta para acessar seu portfólio e começar sua jornada de desenvolvimento.</p>
+                    <!-- termos de privacidade -->
+            <div class="os-termos">
+                    <p>Nossos termos <a href="privacidade">Termos de Serviço</a>
+                    <br> 
+                    <a href="privacidade">Política de Privacidade</a>.</p>
+            </div>
+            </div>
+        <div>  
     <script>
         function togglePasswordVisibility() {
-            var senhaInput = document.getElementById("senha");
+            const senhaInput = document.getElementById("senha");
             if (senhaInput.type === "password") {
                 senhaInput.type = "text";
             } else {
                 senhaInput.type = "password";
             }
         }
+        
+
+        //orientaçãoes da senha //
+        document.getElementById("senha").addEventListener("input", function() {
+            document.getElementById("mensagem-senha").style.display = "block"
+            var senha = document.getElementById("senha").value
+            if (senha.length >= 8) {
+                document.getElementById("oito-caracteres").className = "valido"
+            } else {
+                document.getElementById("oito-caracteres").className = "invalido"
+            }
+
+            if (/[A-Z]/.test(senha)) {
+                document.getElementById("maiusculas").className = "valido"
+            } else {
+                document.getElementById("maiusculas").className = "invalido"
+            }
+
+            if (/[a-z]/.test(senha)) {
+                document.getElementById("minusculas").className = "valido"
+            } else {
+                document.getElementById("minusculas").className = "invalido"
+            }
+
+            if (/[1-9!@#$%¨&*\-]/) {
+                document.getElementById("numeros-especiais").className = "valido"
+            } else {
+                document.getElementById("numeros-especiais").className = "invalido"
+            }
+        })
+
     </script>
     </div>
     </main>
