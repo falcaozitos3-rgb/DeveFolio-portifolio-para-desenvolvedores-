@@ -19,9 +19,11 @@
                 <div class="campo-senha">
                     <input type="password" id="senha" name="senha" placeholder="Senha" required>
                     <p>criptografia de ponta a ponta.</p>
-                    <button type="button" onclick="togglePasswordVisibility()"> &#128065; </button>
+                    <!-- icone de olho pra motra senha -->
+                    <button class="olho" type="button" onclick="togglePasswordVisibility()"> &#128065; </button>
                     <!-- link para entrar -->
-                    <button type="submit">Entrar</button>  
+                    <button type="submit">Entrar</button>
+                </div>
                 </form>
                 <div class="container-botao">
                     <!-- link para cadastro -->
@@ -29,13 +31,12 @@
                     <a href="{{ url_for('index') }}"class="btn">volta</a>
                 </div>
                 </div>
-            </div>
+            
                 <!-- cores -->
             <div class="lado-direito">
                 <p>Estamos felizes em vê-lo(a) novamente.</p>
                 <p>Faça login para acessar sua conta e aproveitar todos os recursos do DeveFolio.</p>
             </div>
-        </div>
         </div>
         <div>
     <script>
