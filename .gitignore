@@ -3,3 +3,6 @@
 *.pyc
 __pycache__/
 *usuarios.json
+*.venv
+*.vscode
+*source
