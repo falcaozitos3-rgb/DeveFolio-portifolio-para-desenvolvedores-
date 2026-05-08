@@ -45,6 +45,7 @@ def entrar():
             if usuario['email'] == email_digitado:
                 email_encontrado = True
                 if usuario['senha'] == senha_digitada:
+                    session['usuario'] = usuario['email']
                     return redirect(url_for('pagina_principal'))
                 else:
                     erro = "Senha errada, tente novamente"
