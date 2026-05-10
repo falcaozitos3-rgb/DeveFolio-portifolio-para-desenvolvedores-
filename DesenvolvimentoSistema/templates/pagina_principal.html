@@ -9,27 +9,79 @@
 </head>
 <body>
     <main>
-        <div class="container-principal">
-            <h1>Bem-vindo(a) ao DeveFolio!</h1>
+        {% if logado %}
+            <div class="container-principal">
+            <button id="btn-menu" onclick="toggleSidebar()">≡</button>
+                <div class="sidebar" id="sidebar">
+                    <!-- menu lateral -->
+                    <div class="button-entrado">
+                        <a href="{{ url_for('manutencao') }}">
+                            <button>👤Perfil</button>
+                        </a>
+                        <a href="{{ url_for('manutencao') }}">
+                            <button>📝Criar Projeto</button>
+                        </a>
+                        <a href="{{ url_for('manutencao') }}">
+                            <button>📂Ver Projetos</button>
+                        </a>
+                        <a href="{{ url_for('contatar') }}">
+                            <button>📤Contatar Suporte</button>
+                        </a>
+                    </div>
+                        <a class="sair-btn"  href="{{ url_for('final') }}">
+                            <button>🚪Sair</button>
+                        </a>
+                </div>
+                <div class="conteudo">
+            <h1>Bem-vindo(a), De volta ao DeveFolio!</h1>
             <p>Explore seus projetos, compartilhe suas conquistas e conecte-se com outros desenvolvedores.</p>
-            <div class="botoes">
-                <a href="{{ url_for('manutencao') }}">
-                    <button>Criar Projeto</button>
-                </a>
-                <a href="{{ url_for('manutencao') }}">
-                    <button>Ver Projetos</button>
-                </a>
-                <a href="{{ url_for('manutencao') }}">
-                    <button>Perfil</button>
-                </a>
-                <a href="{{ url_for('final') }}">
-                    <button>Sair</button>
-
-                    <a href="{{ url_for('contatar') }}">
-                    <button>Contatar Suporte</button>
-                
-                    </a>
+            <!-- projetos da comunidade -->
             </div>
+            </div>
+        {% else %}
+        <div class="visitante_container">
+            <!-- navbar -->
+            <nav class="navbar">
+                <h1>DeveFolio</h1>
+                <div class="button-visitante">
+                    <a href="{{ url_for('entrar') }}">
+                        <button>Entra</button>
+                    </a>
+                    <a href="{{ url_for('cadastro') }}">
+                        <button>Cadastro</button>
+                    </a>
+                </div>
+            </nav>
+            <!-- hero -->
+            <div class="hero">
+                <div class="hero-texto">
+                    <h2>Explorar projetos de devs</h2>
+                    <p> faça parte da nossa comunidade com a gente</p>
+                    <p>Decubra, inspire-se e compartilhe seus codigos</p>
+                    <a href="{{ url_for('cadastro') }}">
+                        <button>Começar agora</button>
+                    </a>
+                </div>
+            <div class="hero-cards">
+                <div class="card-preview">
+                    <h3>🔓Projeto DevWeb</h3>
+                    <p>Python * Flask * CSS</p>
+                    <p> um site completo com login....</p>
+                </div>
+                <div class="card-preview">
+                    <h3>🔓 Jogo em Python</h3>
+                    <p>Python * Pygame</p>
+                    <p>jogo 2D desenvolvimento com.....</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        {% endif %}
+        <script>
+            function toggleSidebar() {
+                document.getElementById("sidebar").classList.toggle("fechado")
+            }
+        </script>
         </div>
     </main>
 </body>

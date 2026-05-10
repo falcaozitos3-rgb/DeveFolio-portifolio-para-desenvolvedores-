@@ -1,6 +1,6 @@
 #coração do projeto, onde tudo se inicia
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import json
 import os
 
@@ -19,6 +19,8 @@ def salvar_usuario(novo_usuario):
         json.dump(usuarios, arquivo)
 
 app = Flask(__name__)
+app.secret_key = 'devfolio123'
+
 #rota para a página inicial
 @app.route("/")
 def index():
@@ -97,9 +99,12 @@ def sobre():
 def manutencao():
     return render_template("manutencao.html")
 
-@app.route("/principal")
+@app.route("/pagina_principal")
 def pagina_principal():
-    return render_template("pagina_principal.html")
+    if 'usuario' in session:
+        return render_template("pagina_principal.html", logado=True)
+    else:
+        return render_template("pagina_principal.html", logado=False)
 
 @app.route("/privacidade")
 def privacidade():
@@ -107,6 +112,7 @@ def privacidade():
 
 @app.route("/final")
 def final():
+    session.clear()
     return render_template("final.html")
 
 
