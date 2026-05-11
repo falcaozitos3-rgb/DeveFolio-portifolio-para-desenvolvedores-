@@ -2,7 +2,9 @@
 # ter arquivos que não devem ser versionados, como arquivos de configuração, arquivos de banco de dados, etc.
 *.pyc
 __pycache__/
+# o json não esta sendo usado mais. foi migrado para o SQLite3
 *usuarios.json
 *.venv
 *.vscode
 *source
+*.db
