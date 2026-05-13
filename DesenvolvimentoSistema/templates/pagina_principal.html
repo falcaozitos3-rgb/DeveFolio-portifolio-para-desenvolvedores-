@@ -5,84 +5,108 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina Principal - DeveFolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='pagina_principal.css') }}">
 </head>
 <body>
-    <main>
-        {% if logado %}
-            <div class="container-principal">
-            <button id="btn-menu" onclick="toggleSidebar()">≡</button>
-                <div class="sidebar" id="sidebar">
-                    <!-- menu lateral -->
-                    <div class="button-entrado">
-                        <a href="{{ url_for('manutencao') }}">
-                            <button>👤Perfil</button>
-                        </a>
-                        <a href="{{ url_for('manutencao') }}">
-                            <button>📝Criar Projeto</button>
-                        </a>
-                        <a href="{{ url_for('manutencao') }}">
-                            <button>📂Ver Projetos</button>
-                        </a>
-                        <a href="{{ url_for('contatar') }}">
-                            <button>📤Contatar Suporte</button>
-                        </a>
-                    </div>
-                        <a class="sair-btn"  href="{{ url_for('final') }}">
-                            <button>🚪Sair</button>
-                        </a>
-                </div>
-                <div class="conteudo">
-            <h1>Bem-vindo(a), De volta ao DeveFolio!</h1>
-            <p>Explore seus projetos, compartilhe suas conquistas e conecte-se com outros desenvolvedores.</p>
-            <!-- projetos da comunidade -->
+
+<main>
+    {% if logado %}
+
+    <!-- ════════ USUÁRIO LOGADO ════════ -->
+    <div class="container-principal">
+
+        <!-- Botão hamburguer -->
+        <button id="btn-menu" onclick="toggleSidebar()">☰</button>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-logo">DevFolio</div>
+
+            <div class="button-entrado">
+                <a href="{{ url_for('manutencao') }}" class="nav-link">
+                    <span class="nav-icon">👤</span> Perfil
+                </a>
+                <a href="{{ url_for('criar_projeto') }}" class="nav-link">
+                    <span class="nav-icon">📁</span> Criar Projeto
+                </a>
+                <a href="{{ url_for('manutencao') }}" class="nav-link">
+                    <span class="nav-icon">📂</span> Ver Projetos
+                </a>
+                <a href="{{ url_for('contatar') }}" class="nav-link">
+                    <span class="nav-icon">🎧</span> Contatar Suporte
+                </a>
             </div>
+
+            <a class="sair-btn" href="{{ url_for('final') }}">
+                <span class="nav-icon">🚪</span> Sair
+            </a>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="conteudo">
+        <div class="conteudo-header">
+            <h1>Bem-vindo(a), De volta ao DevFolio!</h1>
+            <p>Explore seus projetos, compartilhe suas conquistas e projetos com outros desenvolvedores.</p>
+        </div>
+
+        <div class="cards">
+            {% for p in projetos %}
+            <div class="project-card">
+                <h3>{{ p['titulo'] }}</h3>
+                <p>{{ p['descricao'] }}</p>
             </div>
-        {% else %}
-        <div class="visitante_container">
-            <!-- navbar -->
-            <nav class="navbar">
-                <h1>DeveFolio</h1>
-                <div class="button-visitante">
-                    <a href="{{ url_for('entrar') }}">
-                        <button>Entra</button>
-                    </a>
-                    <a href="{{ url_for('cadastro') }}">
-                        <button>Cadastro</button>
-                    </a>
-                </div>
-            </nav>
-            <!-- hero -->
-            <div class="hero">
-                <div class="hero-texto">
-                    <h2>Explorar projetos de devs</h2>
-                    <p> faça parte da nossa comunidade com a gente</p>
-                    <p>Decubra, inspire-se e compartilhe seus codigos</p>
-                    <a href="{{ url_for('cadastro') }}">
-                        <button>Começar agora</button>
-                    </a>
-                </div>
+            {% endfor %}
+        </div>
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <!-- ════════ VISITANTE ════════ -->
+    <div class="visitante_container">
+
+        <nav class="navbar">
+            <h1 class="nav-brand">DevFolio</h1>
+            <div class="button-visitante">
+                <a href="{{ url_for('entrar') }}" class="btn-nav">Entrar</a>
+                <a href="{{ url_for('cadastro') }}" class="btn-nav btn-nav-solid">Cadastro</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-texto">
+                <h2>Explorar projetos de devs</h2>
+                <p>Faça parte da nossa comunidade com a gente</p>
+                <p>Descubra, inspire-se e compartilhe seus códigos</p>
+                <a href="{{ url_for('cadastro') }}" class="btn-hero">Começar agora</a>
+            </div>
+
             <div class="hero-cards">
                 <div class="card-preview">
-                    <h3>🔓Projeto DevWeb</h3>
-                    <p>Python * Flask * CSS</p>
-                    <p> um site completo com login....</p>
+                    <h3>🔒 Projeto DevWeb</h3>
+                    <p>Python • Flask • CSS</p>
+                    <p>um site completo com login....</p>
                 </div>
                 <div class="card-preview">
-                    <h3>🔓 Jogo em Python</h3>
-                    <p>Python * Pygame</p>
+                    <h3>🔒 Jogo em Python</h3>
+                    <p>Python • Pygame</p>
                     <p>jogo 2D desenvolvimento com.....</p>
                 </div>
             </div>
-            </div>
         </div>
-        {% endif %}
-        <script>
-            function toggleSidebar() {
-                document.getElementById("sidebar").classList.toggle("fechado")
-            }
-        </script>
-        </div>
-    </main>
+
+    </div>
+
+    {% endif %}
+</main>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('fechado');
+    }
+</script>
+
 </body>
 </html>
