@@ -51,7 +51,7 @@ def cadastro():
         email = request.form.get('email').lower()
         senha = request.form.get('senha')
         telefone = request.form.get('telefone')
-        print(nome, email, senha, telefone)
+        # print(nome, email, senha, telefone)
         # banco de dados foi mudado de json (json não é bem banco de dados) para SQLite.
         conexao = get_conexao()
         cursor = conexao.cursor()
@@ -79,10 +79,37 @@ def manutencao():
 
 @app.route("/pagina_principal")
 def pagina_principal():
+    conexao = get_conexao()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM projetos")
+    projetos = cursor.fetchall()
+    conexao.close()
+
+
     if 'usuario' in session:
-        return render_template("pagina_principal.html", logado=True)
+        return render_template("pagina_principal.html", logado=True, projetos=projetos)
     else:
-        return render_template("pagina_principal.html", logado=False)
+        return render_template("pagina_principal.html", logado=False, projetos=projetos)
+
+@app.route("/criar_projeto", methods=["GET", "POST"])
+def criar_projeto():
+    if request.method == "POST":
+        titulo = request.form.get('titulo')
+        descricao = request.form.get('descricao')
+        linguagem = request.form.get('linguagem')
+        autor_email = session['usuario']
+        # banco
+        conexao = get_conexao()
+        cursor = conexao.cursor()
+        cursor.execute(
+            "INSERT INTO projetos(titulo, descricao, linguagem, autor_email) VALUES (?, ?, ?, ?)",
+            (titulo, descricao, linguagem, autor_email)
+        )
+        conexao.commit()
+        conexao.close()
+        return redirect(url_for('pagina_principal'))
+
+    return render_template("criar_projeto.html")
 
 @app.route("/privacidade")
 def privacidade():
