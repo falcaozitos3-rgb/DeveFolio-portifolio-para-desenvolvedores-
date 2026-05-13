@@ -29,7 +29,6 @@ O coração do sistema foi construído focando em boas práticas de desenvolvime
 4. Acesse o endereço local indicado no terminal (padrão: `http://127.0.0.1:5000`).
 
 ## front-end
-o front por si so foi feito a parti do desgnir de um  projeto ja feito, no entanto parte do CSS foi feito com ajuda da IA (claude).
-
+o front por si so foi feito a parti do desgnir de um  projeto ja feito usando editores (canva), no entanto parte do CSS foi feito com ajuda da IA (claude).
 
 **Foco do projeto: Desenvolvimento Back-end, Arquitetura MVC com Flask e Persistência de Dados com SQLite.**
